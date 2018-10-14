@@ -9,9 +9,9 @@ import torch.optim as optim
 import torch.nn.functional as F
 from torch.autograd import Variable
 torch.backends.cudnn.bencmark = True
-from sfd_config import SFDConfig
-from net_s3fd import s3fd
-from bbox import *
+from .sfd_config import SFDConfig
+from .net_s3fd import s3fd
+from .bbox import *
 
 
 class SFDDetector(object):
