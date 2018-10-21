@@ -34,7 +34,10 @@ class SFDDetector(object):
         img = img.transpose(2, 0, 1)
         img = img.reshape((1,) + img.shape)
 
-        img = Variable(torch.from_numpy(img).float(), volatile=True).cuda()
+        img = Variable(torch.from_numpy(img).float(), volatile=True)
+        if self.config.USE_CUDA:
+            img = img.cuda()
+
         BB, CC, HH, WW = img.size()
         olist = self.net(img)
 
